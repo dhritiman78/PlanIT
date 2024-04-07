@@ -8,7 +8,7 @@ reminderAdd.addEventListener('click', (e) => {
   let reminder = reminderText.value;
   console.log(reminder);
   let prevHtml = reminderArea.innerHTML;
-  reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex"><input type="checkbox" class="done" name="done">${reminder}</div>`;
+  reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex space-x-4"><input type="checkbox" class="done" name="done">${reminder}</div>`;
   console.log('Reminder added');
   reminderText.value = "";
 })
