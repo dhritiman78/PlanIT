@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Task Manager, Projects, html, javascript, tailwindcss">
+  <meta name="author" content="Biprangshu Das">
+  <title>Home | PlanIT</title>
+  <link rel="shortcut icon" href="assets/pngegg.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Documentation | PlanIT</title>
+</head>
+
+<body class="bg-gray-200">
+  <!--navbar starts-->
+  <nav class="bg-[#77A661] rounded-lg my-2 mx-3 sm:mx-10">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="assets/pngegg.png" class="h-8" alt="" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PlanIT</span>
+      </a>
+      <button data-collapse-toggle="navbar-dropdown" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-dropdown" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <!--Hamburger menu svg-->
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <!--Dropdown menu starts-->
+      <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <ul
+          class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-300 rounded-lg bg-[#668b55e0] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#77A661]">
+          <li>
+            <a href="index.html"
+              class="block py-2 px-3 text-white bg-[#8CA874] rounded md:bg-transparent md:text-black md:p-0 md:dark:bg-transparent"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+              class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-black dark:focus:text-white dark:border-gray-700 dark:hover:bg-[#8CA874] md:dark:hover:bg-transparent">Menu
+              <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 4 4 4-4" />
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar"
+              class="z-10 hidden font-normal bg-gray-500 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                <li>
+                  <a href="documentation.html"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Documentation</a>
+                </li>
+                <li>
+                  <a href="tasks.html"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tasks</a>
+                </li>
+                <li>
+                  <a href="reminders.html"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remainders</a>
+                </li>
+              </ul>
+              <div class="py-1">
+                <a href="clock.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Clock</a>
+              </div>
+            </div>
+          </li>
+          <!--dropdown menu ends-->
+          <li>
+            <a href="clock.html"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-black dark:hover:bg-[#8CA874] dark:hover:text-white md:dark:hover:bg-transparent">Clock</a>
+          </li>
+
+          <li>
+            <a href="https://jarvis1704.github.io/aboutme-BiprangshuDas/"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-white md:dark:hover:text-black dark:hover:bg-[#8CA874] dark:hover:text-white md:dark:hover:bg-transparent">About
+              Me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--navbar ends-->
+  <!--Main content starts-->
+  <main class="h-full sm:flex sm:flex-row px-3 my-7">
+      <aside class="sidenav hidden sm:block sm:max-w-72 sm:mx-4 sm:px-5 sm:rounded sm:border-r-2 sm:border-gray-300">
+        <div class="sm:overflow-y-auto sm:py-5 sm:h-full">
+          <ul class="sm:space-y-4">
+            <li><a href="#1" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#799f67] hover:text-white">Getting started</a></li>
+            <li><a href="#2" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#799f67] hover:text-white">Using the Task manager</a>
+              <ul class="list-inside ml-11">
+                <li><a href="#2a" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#93b683] hover:text-white">Adding tasks</a></li>
+                <li><a href="#2b" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#93b683] hover:text-white">Setting Priority</a></li>
+                <li><a href="#2c" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#93b683] hover:text-white">Removing the task done</a></li>
+              </ul>
+            </li>
+            <li><a href="#3" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#799f67] hover:text-white">Using the Reminder Manager</a>
+              <ul class="list-inside ml-11">
+                <li><a href="#3a" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#93b683] hover:text-white">Adding Reminders</a></li>
+                <li><a href="#3b" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#93b683] hover:text-white">Marking Reminders as complete</a></li>
+              </ul>
+            </li>
+            <li><a href="#4" class="sm:flex sm:items-center sm:rounded sm:px-3 sm:py-2 sm:bg-inherit sm:font-semiboldbold transform transition-all duration-100 hover:sm:bg-[#799f67] hover:text-white">Navigating to the Clock screensaver</a></li>
+          </ul>
+        </div>
+      </aside>
+    <div class="right px-2 sm:px-6 text-pretty text-justify tracking-tight">
+      <section class="welcome my-2.5" id="1">
+        <h1 class="text-2xl font-bold my-2">Welcome to <span class="logo text-[#8ab377]">PlanIT.</span></h1>
+        <hr class="h-0.5 bg-gray-400 my-1">
+        <p>PlanIT is a advanced Task manager web app with support of of course, <a href="tasks.html" id="tasks"
+            class="cursor-pointer underline font-medium tracking-tighter sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">Task manager with
+            Priority manager</a>, <a href="reminders.html" id="reminders"
+            class="cursor-pointer underline font-medium tracking-tighter sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">Reminder manager</a> and a <a
+            href="clock.html" id="clock" class="cursor-pointer underline font-medium tracking-tighter sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">clock
+            screensaver</a> for all your planning needs. <br> This documentation lets you know how exactly you can use
+          PlanIT to maximize your productivity.</p>
+      </section>
+      <hr>
+      <section class="taskmanager my-2.5" id="2">
+        <h2 class="font-semibold text-xl text-[#679156] my-2" id="">Using the Task Manager:</h2>
+        <article>The <a href="tasks.html" class="underline tracking-tighter font-medium cursor-pointer sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">task manager</a> of PlanIT is filled with sophisticated features such as priority
+          setting,
+          task reorganization etc.</span>
+          <p>
+          <h4 class="font-medium my-2">Here's how you can Navigate to the <span class="font-semibold text-[#506b46]">Tasks page:</h4>
+          <ol class="steps list-decimal list-inside">
+            <li class="">Click on the <svg class="w-5 h-5 inline-block" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15" />
+              </svg> icon (if in mobile) or the menu button (if in desktop) in the nav bar to access the dropdown menu.
+            </li>
+            <li>Click on the tasks option from the dropdown menu.</li>
+            <li>You will be greeted with the task manager page of PlanIT.</li>
+          </ol>
+          </p>
+          <hr class="h-0.5 bg-gray-300 my-5">
+          <p>
+          <h4 class="font-semibold text-xl text-[#679156] my-2" id="2a">Adding tasks:</h4>
+          <span class="font-semibold">To add tasks</span>, here the the following steps you should be following:
+          <ol class="steps list-decimal list-inside py-3 ">
+            <li>Type your tasks in the add task feild box.</li>
+            <li>Click on "ADD" button adjacent to the task feild or click enter key (if on desktop) to add the task</li>
+            <li>Now you can see the tasks which you just added in the "Current Tasks" section.</li>
+          </ol>
+          </p>
+          <hr class="h-0.5 bg-gray-300 my-5">
+          <p>
+          <h4 class="font-semibold text-xl text-[#679156] my-2" id="2b">Setting priority:</h4>
+          <span class="font-semibold">To set Priority to your tasks</span>, Here are the following steps you should be
+          following:
+          <ol class="steps py-3 list-decimal list-inside">
+            <li>Click on the select Priority Dropdown menu.</li>
+            <li>Choose your priotity now.
+              <ul class="list-disc list-inside px-5">
+                <li><span class="text-blue-500">Low Priority</span> for tasks with no immediate attention.</li>
+                <li><span class="text-yellow-400">Medium Priority</span> for tasks with little immediate attention.</li>
+                <li><span class="text-red-600">High Priority</span> for tasks with immediate attention.</li>
+              </ul>
+            </li>
+          </ol>
+          </p>
+          <hr class="h-0.5 bg-gray-300 my-5">
+          <p>
+          <h4 class="font-semibold text-xl text-[#679156] my-2" id="2c">Removing the done task.</h4>
+          <span class="font-semibold">To remove the done task</span>, Here are the following steps you should following:
+          <ol class="steps py-3 list-decimal list-inside">
+            <li>Click on the checkbox on the side of the task description</li>
+            <li>You will now see the task in the completed tasks section with the task description strikethroughed.</li>
+          </ol>
+          </p>
+          <p class="py-3 font-normal">By following these steps we can easily maintain the tasks in the PlanIT task manager.</p>
+        </article>
+      </section>
+      <hr class="h-0.5 bg-gray-300 my-5">
+      <section class="remindermanager" id="3">
+        <h2 class="font-semibold text-xl text-[#679156] my-2">Using the Reminder Manager.</h2>
+        <article class="py-3">
+          The <a href="reminders.html" class="underline tracking-tighter font-medium cursor-pointer sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">reminder manager</a> of PlanIT is filled with features to keep you on track.
+          <p class="py-2">
+          Here's how you can Navigate to the <span class="font-semibold">Reminders page:
+          <ol class="steps list-decimal list-inside py-3">
+            <li class="">Click on the <svg class="w-5 h-5 inline-block" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15" />
+              </svg> icon (if in mobile) or the menu button (if in desktop) in the nav bar to access the dropdown menu.
+            </li>
+            <li>Click on the reminders option from the dropdown menu.</li>
+            <li>You will be greeted with the reminder manager page of PlanIT.</li>
+          </ol>
+          </p>
+          <hr class="h-0.5 bg-gray-300 my-5">
+          <p>
+          <h4 class="font-semibold text-xl text-[#679156] my-2" id="3a">Adding reminders:</h4>
+          <span class="font-semibold">To add reminders</span>, here are the following steps you should be following:
+          <ol class="steps py-3 list-decimal list-inside">
+            <li>Type your reminder in the add reminder field box.</li>
+            <li>Click on "ADD" button adjacent to the reminder field or click enter key (if on desktop) to add the
+              reminder</li>
+            <li>Now you can see the reminders which you just added in the "Current Reminders" section.</li>
+          </ol>
+          </p>
+          <hr class="h-0.5 bg-gray-300 my-5">
+          <p>
+          <h4 class="font-semibold text-xl text-[#679156] my-2 tracking-tighter" id="3b">Marking reminders as complete:</h4>
+          <span class="font-semibold">To mark a reminder as complete</span>, Here are the following steps you should
+          following:
+          <ol class="steps py-3 list-inside list-decimal">
+            <li>Click on the checkbox on the side of the reminder description.</li>
+            <li>You will now see the reminder marked as complete.</li>
+          </ol>
+          </p>
+          <p class="py-3">
+            By following these steps, we can easily manage reminders in the PlanIT reminder manager.
+          </p>
+        </article>
+      </section>
+      <hr class="h-0.5 bg-gray-300 my-5">
+      <section class="clock" id="4">
+        <h2 class="font-semibold text-xl text-[#679156] my-2 tracking-tighter">Navigating to the Clock screensaver:</h2>
+        <article>
+          The <a href="clock.html" class="underline tracking-tighter font-medium cursor-pointer sm:transfrom sm:transition-all sm:duration-100 sm:hover:text-[#679156]">Clock screensaver</a> is a screensaver which shows you the current time in real time, keeping
+          you
+          updated to the exact moment of the day.
+          <p>
+          <h4 class="py-3"><span class="font-semibold">To navigate to clock</span>, here are the following steps you should be
+            following:</h4>
+          <ol class="steps list-decimal list-inside py-2">
+            <li class="">Click on the <svg class="w-5 h-5 inline-block" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15" />
+              </svg> icon (if in mobile) or the menu button (if in desktop) in the nav bar to access the dropdown menu.
+            </li>
+            <li>Click on the clock option from the dropdown.</li>
+            <li>This will land you to the clock screensaver page.</li>
+          </ol>
+          </p>
+        </article>
+      </section>
+      <hr class="h-0.5 bg-gray-300 my-5">
+    </div>
+
+  </main>
+  <!--Main Content Ends-->
+  <!--footer starts-->
+  <footer class="bg-[#77A661] rounded-lg shadow m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+          <img src="assets/pngegg.png" class="h-8" alt="PlanIT Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PlanIT</span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-white">
+          <li>
+            <a href="https://jarvis1704.github.io/aboutme-BiprangshuDas/" class="hover:underline me-4 md:me-6">About
+              Me</a>
+          </li>
+          <li>
+            <a href="https://github.com/jarvis1704/PlanIT.git" class="hover:underline me-4 md:me-6">Check out the Source
+              Code</a>
+          </li>
+          <li>
+            <a href="https://github.com/jarvis1704" class="hover:underline me-4 md:me-6">My Projects</a>
+          </li>
+          <li>
+            <a href="https://jarvis1704.github.io/aboutme-BiprangshuDas/" class="hover:underline">Reach Me</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="footerlinks flex flex-wrap space-y-2 sm:space-y-0 sm:justify-between">
+        <span class="space-x-4 text-lg sm:text-xl">
+          <a href="https://www.linkedin.com/in/biprangshu-das-34017427a/" id="linkedin" class=""><i
+              class="fa-brands fa-linkedin hover:text-white"></i></a>
+          <a href="https://twitter.com/DasBiprangshu" id="twitter" class=""><i
+              class="fa-brands fa-x-twitter hover:text-white"></i></a>
+          <a href="https://github.com/jarvis1704" id="github" class=""><i
+              class="fa-brands fa-github hover:text-white"></i></a>
+        </span>
+        <span class="block text-sm text-white sm:text-end dark:text-white my-1 ml-auto">© 2024 <a
+            href="https://jarvis1704.github.io/aboutme-BiprangshuDas/" class="hover:underline">Biprangshu Das</a>. All
+          Rights Reserved.</span>
+      </div>
+
+    </div>
+  </footer>
+  <!--footer ends-->
+  <script src="js/script1.js"></script>
+</body>
+
+</html>
