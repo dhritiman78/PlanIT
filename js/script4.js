@@ -14,11 +14,11 @@ taskAdd.addEventListener('click', (e) => {
   }
 
   let newTask = document.createElement('div');
-  newTask.className = "task mx-auto outline-blue-500 rounded-md px-2 sm:px-5 py-2 font-serif bg-blue-200 my-5 flex flex-col sm:flex-row space-x-0 space-y-3 sm:space-x-4";
+  newTask.className = "task mx-auto w-full outline-blue-500 rounded-md px-2 sm:px-5 py-2 font-serif bg-blue-200 my-5 flex flex-col sm:flex-row space-x-3 space-y-3 sm:space-x-4 items-center sm:justify-between";
   newTask.innerHTML = `
     <input type="checkbox" class="done" name="done">
-    <p>${task}</p>
-    <div class="flex">
+    <p class="sm:flex-grow sm:text-left sm:px-4">${task}</p>
+    <div class="flex justify-end">
       <select name="priority" class="priority rounded-lg h-8 mx-auto bg-inherit text-gray-600 focus:outline-blue-600 active:outline-blue-600 hover:bg-blue-100">
         <option value="" disabled selected>--Select priority--</option>
         <option value="low" class="text-blue-400">Low priority</option>
@@ -63,10 +63,10 @@ taskText.addEventListener('keydown', (e) => {
     }
 
     let newTask = document.createElement('div');
-    newTask.className = "task mx-auto outline-blue-500 rounded-md px-2 sm:px-5 py-2 font-serif bg-blue-200 my-5 flex flex-col sm:flex-row space-x-0 space-y-3 sm:space-x-4";
+    newTask.className = "task mx-auto w-full outline-blue-500 rounded-md px-2 sm:px-5 py-2 font-serif bg-blue-200 my-5 flex flex-col sm:flex-row space-x-3 space-y-3 sm:space-x-4 items-center sm:justify-between";
     newTask.innerHTML = `<input type="checkbox" class="done" name="done">
-    <p>${task}</p>
-    <div class="flex">
+    <p class="sm:flex-grow sm:text-left sm:px-4">${task}</p>
+    <div class="flex justify-end">
       <select name="priority" class="priority rounded-lg h-8 mx-auto bg-inherit text-gray-600 focus:outline-blue-600 active:outline-blue-600 hover:bg-blue-100">
         <option value="" disabled selected>--Select priority--</option>
         <option value="low" class="text-blue-400">Low priority</option>
@@ -108,7 +108,7 @@ taskArea.addEventListener('click', (e) => {
     let taskElement = e.target.parentElement;
     let task = taskElement.querySelector('p').innerText;
     taskElement.remove();
-    doneTaskArea.insertAdjacentHTML('beforeend', `<div class="donetask mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif line-through text-gray-300 bg-green-100 my-5 flex">${task}</div>`);
+    doneTaskArea.insertAdjacentHTML('beforeend', `<div class="donetask mx-auto w-full outline-blue-500 rounded-md px-5 py-2 font-serif line-through text-gray-300 bg-green-100 my-5 flex">${task}</div>`);
     console.log('moved task to donetask section');
   }
 });

@@ -12,12 +12,11 @@ reminderAdd.addEventListener('click', (e) => {
   }
   console.log(reminder);
   let prevHtml = reminderArea.innerHTML;
-  reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex space-x-4"><input type="checkbox" class="done" name="done">${reminder}</div>`;
+  reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto w-full outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex space-x-4"><input type="checkbox" class="done mr-7" name="done">${reminder}</div>`;
   console.log('Reminder added');
   reminderText.value = "";
 })
 
-//implementing enter to add
 //implementing enter to add
 reminderText.addEventListener("keydown", (e) => {
   if (event.key == "Enter") {
@@ -28,7 +27,7 @@ reminderText.addEventListener("keydown", (e) => {
     }
     console.log(reminder);
     let prevHtml = reminderArea.innerHTML;
-    reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex"><input type="checkbox" class="done" name="done">${reminder}</div>`;
+    reminderArea.innerHTML = prevHtml + `<div class="reminder mx-auto w-full outline-blue-500 rounded-md px-5 py-2 font-serif bg-blue-200 my-5 flex"><input type="checkbox" class="done mr-7" name="done">${reminder}</div>`;
     console.log('Reminder added');
     reminderText.value = "";
   }
@@ -40,7 +39,7 @@ reminderArea.addEventListener('click', (e) => {
     let reminder = e.target.parentElement.innerText;
     e.target.parentElement.remove();
     let prevHtml = completedReminder.innerHTML;
-    completedReminder.innerHTML = prevHtml + `<div class="donereminder mx-auto outline-blue-500 rounded-md px-5 py-2 font-serif line-through text-gray-300 bg-green-100 my-5 flex">${reminder}</div>`;
+    completedReminder.innerHTML = prevHtml + `<div class="donereminder mx-auto w-full outline-blue-500 rounded-md px-5 sm:px-20 py-2 font-serif line-through text-gray-300 bg-green-100 my-5 flex">${reminder}</div>`;
     console.log('moved reminder to donereminder section');
   }
 })
