@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Task Manager, Projects, html, javascript, tailwindcss">
+  <meta name="author" content="Biprangshu Das">
+  <title>Home | PlanIT</title>
+  <link rel="shortcut icon" href="assets/pngegg.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/style1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 dark:bg-gray-300">
+    <!-- Navbar -->
+  <%- include("components/navbar.ejs") %>
+  <!--main content starts-->
+  <main class="flex max-h-screen max-w-screen-2xl my-20 sm:mx-10">
+    <!-- Make a profile page here having Name of the user the png file as rounded in the top email of the user and a logout button -->
+    <section class="profile flex flex-col items-center justify-center w-full">
+      <div class="profilecard flex flex-col items-center justify-center w-full bg-white dark:bg-gray-700 rounded-lg shadow-lg p-5">
+        <img src="assets/pngegg.png" class="h-20 w-20 rounded-full" alt="Profile Picture">
+        <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 my-2"><%= username %></h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 my-2">
+            Email: <%= email %>
+        </p>
+        <a href="log-out" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Logout
+        </a>
+    
+  </main>
+  <!--main content ends-->
+  <!--footer starts-->
+  <%- include("components/footer.ejs") %>
+  <!--footer ends-->
+  <script src="js/script1.js"></script>
+  <script src="js/lightdark.js"></script>
+
+</body>
+
+</html>

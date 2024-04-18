@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Task Manager, Projects, html, javascript, tailwindcss">
+  <meta name="author" content="Biprangshu Das">
+  <title>Home | PlanIT</title>
+  <link rel="shortcut icon" href="assets/pngegg.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/style1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 dark:bg-gray-300">
+    <!-- Navbar -->
+  <%- include("components/navbar.ejs") %>
+  <!--main content starts-->
+  <main class="flex max-h-screen max-w-screen-2xl my-20 sm:mx-10">
+    <div class="left px-5 py-10">
+      <p class="font-medium text-5xl lg:text-7xl antialiased leading-snug sm:leading-snug py-5 items-center">Your
+        Tasks,<br><span class="tagline text-green-600">Planned.</span></p>
+      <p
+        class="font-normal sm:font-normal text-lg sm:text-xl lg:text-2xl opacity-70 antialiased leading-tight py-3 items-center">
+        Plan your tasks, anytime, anywhere <br> and stay productive, using <span
+          class="tagline text-green-600 font-bold opacity-100">PlanIT</span>.</p>
+      <a href="documentation"><button
+          class="btn bg-green-600 px-5 py-3 rounded-lg text-white antialiased hover:cursor-pointer sm:transform sm:transition-all sm:duration-300 sm:ease-in-out sm:hover:scale-110 sm:active:translate-y-1 hover:bg-green-700 shadow-lg">START
+          NOW</button></a>
+    </div>
+    <div class="right hidden sm:inline-block sm:ml-auto sm:my-auto sm:mr-10">
+      <img src="assets/pngegg.png" alt="PlanIT Logo" class="h-64 w-64">
+    </div>
+  </main>
+  <!--main content ends-->
+  <!--footer starts-->
+  <%- include("components/footer.ejs") %>
+  <!--footer ends-->
+  <script src="js/script1.js"></script>
+  <script src="js/lightdark.js"></script>
+
+</body>
+
+</html>
