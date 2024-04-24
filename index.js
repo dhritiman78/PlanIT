@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const session = require('express-session')
-const port = 3000
+const port =  process.env.PORT || 3000
 const bodyParser = require('body-parser')
+const nodemailer = require('nodemailer');
+const otpGenerator = require('otp-generator');
 // Include the hash function
 const bcrypt = require('bcrypt')
 const saltRounds = 10;
@@ -10,10 +12,21 @@ const saltRounds = 10;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+
 const mongoose = require('mongoose')
 
 // require the routers
 const { cssRouter, jsRouter, assetsRouter } = require('./routers/static_files_serving.js')
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure: true,
+    port: 465,
+    auth: {
+        user: 'planit.team.224@gmail.com', // Change this to your email
+        pass: 'lfcz szsi mfhk ohyt' // Change this to your password
+    }
+});
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/plan_it', {
@@ -107,6 +120,44 @@ app.get('/delete-task', (req, res) => {
     });
     }
     })
+    app.post('/send-otp', async (req, res) => {
+        const email = req.body.email;
+        const user = await Users
+        .findOne({ email: email });
+        if (user != null) {
+            const otp = otpGenerator.generate(6, { upperCase: false, specialChars: false });
+            req.session.otp = otp;
+            req.session.emailforotp = email;
+            
+            const mailOptions = {
+                from: 'planit.team.224@gmail.com', // Change this to your email
+                to: email,
+                subject: 'OTP for password reset',
+                text: `Your OTP is ${otp}`
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    req.session.isEmailsent = true;
+                    res.send('<script>alert("OTP sent to your email!"); window.location.href = "/verify-otp";</script>')
+                }
+            });
+        } else {
+            res.send('<script>alert("User not found!"); window.location.href = "/forgot-password";</script>')
+        }
+    })
+    app.post('/verify-otp', async (req, res) => {
+        const otp = req.body.otp;
+        if (otp == req.session.otp) {
+            req.session.isOTPverified = true;
+            res.send('<script>alert("OTP verified!"); window.location.href = "/forgot-password";</script>')
+        } else {
+            res.send('<script>alert("Invalid OTP!"); window.location.href = "/verify-otp";</script>')
+        }
+    })
+
 
 // Mount the routers
 app.use('/css', cssRouter);
@@ -132,6 +183,36 @@ app.get('/reminders',async (req, res) => {
             res.send('<script>alert("You need to login to view this page!"); window.location.href = "/log-in";</script>')
         }
         })
+
+        app.post('/forgot-password', async (req, res) => {
+            const { password, confirmPassword } = req.body;
+            if (password == confirmPassword) {
+                const hashedPassword = await bcrypt.hash(password, saltRounds);
+                Users.findOneAndUpdate({ email: req.session.emailforotp }, { password: hashedPassword }).then(() => {
+                    req.session.isOTPverified = false;
+                    req.session.isEmailsent = false;
+                    req.session.emailforotp = null;
+                    req.session.otp = null;
+                    if (req.session.isOTPverified == false && req.session.isEmailsent == false && req.session.emailforotp == null && req.session.otp == null) {
+                        res.send('<script>alert("Password reset successful!"); window.location.href = "/log-in";</script>')
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                });
+            } else {
+                res.send('<script>alert("Passwords do not match!"); window.location.href = "/forgot-password";</script>')
+            }
+        })
+app.get('/forgot-password',async (req, res) => {
+        if (req.session.isOTPverified == true) {
+        res.render(`forgot-password`,{login: req.session.login, username: req.session.username, email: req.session.email})
+        }
+        else {
+            res.redirect('/verify-otp')
+        }
+        })
+
+
 app.get('/tasks',async (req, res) => {
         if (req.session.login == true && req.session.email != null) {
         const tasks = await Tasks.find({ email: req.session.email });
@@ -157,7 +238,7 @@ app.get('/log-out', (req, res) => {
     res.send('<script>alert("You have successfully logged out!"); window.location.href = "/";</script>')
     })
 app.get('/:slug', (req, res) => {
-    res.render(`${req.params.slug}`, { title: req.params.slug, login: req.session.login, username: req.session.username, email: req.session.email  })
+    res.render(`${req.params.slug}`, { title: req.params.slug, login: req.session.login, username: req.session.username, email: req.session.email, isEmailsent: req.session.isEmailsent })
     })
 
 
@@ -177,8 +258,40 @@ app.post('/signup-process', async (req, res) => {
             req.session.username = name;
             req.session.email = email;
             console.log('User saved!')});
-        
-        res.send('<script>alert("You have successfully signed up!"); window.location.href = "/";</script>')
+            const welcomenote = {
+                from: 'planit.team.224@gmail.com', // Change this to your email
+                to: email,
+                subject: 'Welcome to PlanIT - Your Personal Productivity Assistant 🚀',
+                text: `Dear ${name},
+
+                Welcome aboard to PlanIT, your ultimate tool for maximizing productivity and staying organized! We're thrilled to have you join our community of empowered individuals who are taking charge of their tasks, reminders, and time management.
+                
+                At PlanIT, we understand the importance of staying on top of your responsibilities while maintaining a healthy work-life balance. With our intuitive task manager, reminder manager, and clock screensaver features, we've got you covered every step of the way.
+                
+                Here's a quick overview of what you can expect from PlanIT:
+                
+                Task Manager: Easily organize your tasks, set priorities, and track your progress towards your goals.
+
+                Reminder Manager: Never miss a deadline or appointment again with customizable reminders tailored to your schedule.
+
+                Clock Screensaver: Stay updated with the current time in real-time, keeping you on track and focused throughout your day.
+                
+                We're committed to providing you with a seamless and personalized experience to help you achieve your goals efficiently. If you ever have any questions, feedback, or need assistance, don't hesitate to reach out to our friendly support team at planit.team.224@gmail.com.
+                
+                Once again, welcome to the PlanIT family! We can't wait to see how you'll make the most out of our app and accomplish great things.
+                
+                Best regards,
+                
+                Team PlanIT`,
+            };
+            transporter.sendMail(welcomenote, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+            res.send('<script>alert("You have successfully signed up!"); window.location.href = "/";</script>')
     }
     else if(isthereuser != 0){
         res.send('<script>alert("User already exists! Please login."); window.location.href = "/sign-up";</script>')
